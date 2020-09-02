@@ -19,9 +19,8 @@ export class RegulationComponent extends React.Component {
             inClosedRoomsInput: false,
             locationSizeInput: 1,
             wearMaskInput: false,
-            regulation:''
+            regulation:'',
         }
-
     }
     
     handleClickCheckRegulation = () => {
@@ -78,17 +77,31 @@ export class RegulationComponent extends React.Component {
         }));
       }
 
+
     render() {
 
         return(
             <div>
-                 <div className="regulation-check-component-wrapper">       
-                            <ConditionalInput                               
-                                inputValue={this.state.stateInput}
-                                labelText='Bundesland'
-                                type='text'
-                                returnValue={this.updateStateInput}
-                            />
+                 <div className="regulation-check-component-wrapper">               
+                            <label for="state">Bundesland</label>
+                            <select name="state" id="state" onChange={this.updateStateInput}>
+                                <option value="Baden-Württemberg">Baden-Württemberg</option>
+                                <option value="Bayern">Bayern</option>
+                                <option value="Berlin">Berlin</option>
+                                <option value="Brandenburg">Brandenburg</option>
+                                <option value="Bremen">Bremen</option>
+                                <option value="Hamburg">Hamburg</option>
+                                <option value="Hessen">Hessem</option>
+                                <option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
+                                <option value="Niedersachsen">Niedersachsen</option>
+                                <option value="Nordrhein-Westfalen">Nordrhein-Westfalen</option>
+                                <option value="Rheinland-Pfalz">Rheinland-Pfalz</option>
+                                <option value="Saarland">Saarland</option>
+                                <option value="Sachsen">Sachsen</option>
+                                <option value="Sachsen-Anhalt">Sachsen-Anhalt</option>
+                                <option value="Schleswig-Holstein">Schleswig-Holstein</option>
+                                <option value="Thüringen">Thüringen</option>
+                            </select> 
                              <ConditionalInput                               
                                 inputValue={this.state.personAmountInput}
                                 labelText='Anzahl Personen'
@@ -101,16 +114,12 @@ export class RegulationComponent extends React.Component {
                                 type='number'
                                 returnValue={this.updateHouseholdsInput}
                             />
-
-
                             <ConditionalInput                               
                                 inputValue={this.state.locationSizeInput}
                                 labelText='Veranstaltungsfläche [m2]'
                                 type='number'
                                 returnValue={this.updateLocationSizeInput}
                             />
-                        
-
                             <label>
                                     <input type="checkbox"
                                             checked={this.state.inClosedRoomsInput}
@@ -118,8 +127,6 @@ export class RegulationComponent extends React.Component {
                                     />
                                     in geschlossenen Räumen?
                             </label>
-
-
                             <label>
                                     <input type="checkbox"
                                             checked={this.state.wearMaskInput}
@@ -127,11 +134,6 @@ export class RegulationComponent extends React.Component {
                                     />
                                     Tragen die Teilnehmer eine Maske?
                             </label>
-
-                          
-                                 
-            
-                    
                     <div className="checkEvent-wrapper">
                         <button 
                             className="button-checkEvent btn " 
